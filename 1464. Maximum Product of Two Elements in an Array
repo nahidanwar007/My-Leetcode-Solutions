@@ -12,7 +12,7 @@ class Solution {
         {
             for(j=i+1;j<len;j++)
             {
-                res = (nums[i]-1)*(nums[j]-1);
+                res = (nums[i]-1)*(nums[j]-1);                          // SOLUTION 1
                 if(max < res)
                     max = res;
                 //System.out.println(max);
@@ -23,3 +23,18 @@ class Solution {
         return max;
     }
 }
+
+
+/*
+
+class Solution {
+    public int maxProduct(int[] nums) {
+        Arrays.sort(nums);
+        int last_index, product;
+        last_index = nums.length-1;         
+        product = (nums[last_index]-1)*(nums[last_index-1]-1);              // SOLUTION 2 
+        return product;
+    }
+}
+
+*/
