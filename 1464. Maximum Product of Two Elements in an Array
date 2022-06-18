@@ -1,0 +1,20 @@
+class Solution {
+    public int maxProduct(int[] nums) {
+        int i, j, len, res=0;
+        int max = 0;
+        len = nums.length;
+        for(i=0;i<len-1;i++)
+        {
+            for(j=i+1;j<len;j++)
+            {
+                res = (nums[i]-1)*(nums[j]-1);
+                if(max < res)
+                    max = res;
+                //System.out.println(max);
+                res = 0;
+            }
+        }
+        //System.out.println(max);
+        return max;
+    }
+}
