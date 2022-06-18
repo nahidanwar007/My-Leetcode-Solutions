@@ -12,7 +12,7 @@ class Solution {
         {
             for(j=i+1;j<len;j++)
             {
-                res = (nums[i]-1)*(nums[j]-1);                          // SOLUTION 1
+                res = (nums[i]-1)*(nums[j]-1);                          // SOLUTION 1: O(n^2)
                 if(max < res)
                     max = res;
                 //System.out.println(max);
@@ -32,8 +32,33 @@ class Solution {
         Arrays.sort(nums);
         int last_index, product;
         last_index = nums.length-1;         
-        product = (nums[last_index]-1)*(nums[last_index-1]-1);              // SOLUTION 2 
+        product = (nums[last_index]-1)*(nums[last_index-1]-1);              // SOLUTION 2: O(n log n)
         return product;
+    }
+}
+
+*/
+
+
+/*
+
+class Solution {
+    public int maxProduct(int[] nums) {
+        int max1, max2;
+        max1 = max2 = 0;
+        for(int i=0; i<nums.length; i++)
+        {
+            if(nums[i]>max1)
+            {
+                max2 = max1;
+                max1 = nums[i];                                             // SOLUTION 3: O(n)
+            }
+            else if(nums[i]>max2)
+            {
+                max2 = nums[i];
+            }
+        }
+        return (max1-1)*(max2-1); 
     }
 }
 
