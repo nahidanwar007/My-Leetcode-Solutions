@@ -1,0 +1,32 @@
+/*
+
+Given a string of English letters s, return the greatest English letter which occurs as both a lowercase and uppercase letter in s.
+The returned letter should be in uppercase. If no such letter exists, return an empty string.
+i.e. An English letter b is greater than another letter a if b appears after a in the English alphabet.
+
+*/
+
+
+class Solution {
+    public String greatestLetter(String s) {
+        boolean[] upper = new boolean[26];
+        boolean[] lower = new boolean[26];
+        int i;
+        char[] arr = s.toCharArray();
+       
+        for(i=0; i < s.length(); i++)
+        {
+            if (Character.isLowerCase(arr[i]))
+                lower[arr[i]-97] = true;
+            else if (Character.isUpperCase(arr[i]))
+                upper[arr[i]-65] = true;
+        }
+        
+        for(i=lower.length-1; i>=0; i--)
+        {
+            if(upper[i] && lower[i])
+                return Character.toString((char) (i+65));   
+        }
+        return "";
+    }
+}
