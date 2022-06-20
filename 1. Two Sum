@@ -12,8 +12,8 @@ class Solution {
         for(i = 0; i < nums.length-1; i++)
         {   
             for(j = i+1; j < nums.length; j++)
-            {
-                if(nums[i]+nums[j] == target)             // SOLUTION 1: O(N^2)
+            {                                                                         // Brute Force
+                if(nums[i]+nums[j] == target)                                         // SOLUTION 1: O(N^2)
                 {
                     arr[0] = i;
                     arr[1] = j;
@@ -24,3 +24,27 @@ class Solution {
     return arr;
     }
 }
+
+
+/*
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int i, j, rem;
+        int[] arr = new int[2];
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();        
+        for(i = 0; i < nums.length; i++) {   
+            rem = target - nums[i];
+            if(map.containsKey(rem)) {                                                  // HashMap
+                arr[0] = i;                                                             // SOLUTION 2: O(N)
+                arr[1] = map.get(rem);
+                break;
+            }
+            map.put(nums[i], i);
+        }
+        return arr;
+    }
+}
+
+
+*/
