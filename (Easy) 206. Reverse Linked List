@@ -14,7 +14,7 @@ class Solution:
         prev = None;
         curr = head;
         
-        while(curr):                                      # SOLUTION 1: O(N)
+        while(curr):                                      # SOLUTION 1(Iterative): O(N), O(1)
             tempNode = curr.next;
             curr.next = prev;
             prev = curr;
@@ -23,3 +23,19 @@ class Solution:
         return prev;
         
         
+        
+        
+"""
+
+class Solution:
+    def reverseList(self, head):
+        if (not head) or (not head.next):
+            return head
+        
+        subList = self.reverseList(head.next)            # SOLUTION 2(Recursive): O(N), O(N)
+        head.next.next = head
+        head.next = None
+        
+        return subList
+
+"""
