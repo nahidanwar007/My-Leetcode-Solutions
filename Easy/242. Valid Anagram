@@ -1,0 +1,23 @@
+"""
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+"""
+
+#SOLUTION-1: O(nlogn)
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if sorted(s) == sorted(t):
+            return True
+        else:
+            return False
+
+
+# SOLUTION-2: O(n)
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        for ch in 'abcdefghijklmnopqrstuvwxyz':
+            if s.count(ch) != t.count(ch):
+                return False
+                break
+        
+        return True
