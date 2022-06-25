@@ -1,0 +1,41 @@
+"""
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+"""
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+       
+        
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev = None;
+        curr = head;
+        
+        while(curr):                                      # SOLUTION 1(Iterative): O(N), O(1)
+            tempNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = tempNode;
+        
+        return prev;
+        
+        
+        
+        
+"""
+
+class Solution:
+    def reverseList(self, head):
+        if (not head) or (not head.next):
+            return head
+        
+        subList = self.reverseList(head.next)            # SOLUTION 2(Recursive): O(N), O(N)
+        head.next.next = head
+        head.next = None
+        
+        return subList
+
+"""
