@@ -1,0 +1,24 @@
+"""
+A square matrix is said to be an X-Matrix if both of the following conditions hold:
+All the elements in the diagonals of the matrix are non-zero.All other elements are 0.
+
+Given a 2D integer array grid of size n x n representing a square matrix, return true if grid is an X-Matrix. Otherwise, return false.
+"""
+
+#SOLUTION-1: O(n^2)
+
+class Solution:
+    def checkXMatrix(self, grid: List[List[int]]) -> bool:
+        
+        j = len(grid)-1
+        for i in range(len(grid)):
+            if grid[i][i]==0 or grid[i][j]==0:
+                    return False
+                
+            for k in range(len(grid)):
+                if i!=k and k != j:
+                    if grid[i][k] != 0:
+                        return False    
+            j = j - 1    
+        
+        return True
