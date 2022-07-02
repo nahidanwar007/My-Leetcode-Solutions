@@ -1,0 +1,22 @@
+"""
+Given an array arr of positive integers sorted in a strictly increasing order, and an integer k.
+
+Return the kth positive integer that is missing from this array.
+"""
+
+class Solution:
+    def findKthPositive(self, arr: List[int], k: int) -> int:
+        
+        
+        s = set(range(1, 2001))
+        p = set(arr)
+        s = s - p
+        
+        return list(s)[k-1]
+
+#         for i in range(1, 2001-k):
+#             if i == k:
+#                 return s.pop()
+#             s.pop()
+#             i = i - 1
+            
