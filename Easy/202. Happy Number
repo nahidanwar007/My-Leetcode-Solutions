@@ -10,6 +10,7 @@ Return true if n is a happy number, and false if not.
 
 """
 
+#SOLUTION-1
 class Solution:
     def isHappy(self, n: int) -> bool:
         
@@ -18,5 +19,25 @@ class Solution:
         while n not in s:
             s.add(n)
             n = sum(int(i)**2 for i in str(n))
+        
+        return n==1
+
+
+#SOLUTION-2
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        
+        def next_num(num):
+            nxt_num = 0
+            while(num>0):
+                num, rem = divmod(num, 10)
+                nxt_num = nxt_num + rem**2
+            return nxt_num
+            
+        
+        s = set()
+        while n!=1 and n not in s:
+            s.add(n)
+            n = next_num(n)
         
         return n==1
