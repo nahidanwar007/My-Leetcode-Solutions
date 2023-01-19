@@ -1,0 +1,28 @@
+"""
+You are given a positive integer array nums.
+
+    The element sum is the sum of all the elements in nums.
+    The digit sum is the sum of all the digits (not necessarily distinct) that appear in nums.
+
+Return the absolute difference between the element sum and digit sum of nums.
+
+Note that the absolute difference between two integers x and y is defined as |x - y|.
+"""
+
+
+
+class Solution:
+    def differenceOfSum(self, nums: List[int]) -> int:
+        # ele_sum = digit_sum = 0
+        ele_sum = sum(nums)
+        # for i in range(len(nums)):
+        #     temp = str(nums[i])
+        #     # print(temp)
+        #     for j in range(len(temp)):
+        #         # print(j)
+        #         digit_sum = digit_sum + int(temp[j])
+        # # print(digit_sum)
+        # return abs(digit_sum - ele_sum)
+
+        digit_sum = sum(int(i) for num in nums for i in str(num))
+        return abs(digit_sum - ele_sum)
