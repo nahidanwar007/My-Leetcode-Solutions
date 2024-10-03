@@ -4,8 +4,6 @@ class Solution:
         for n in nums:
             mmap[n] = 1 + mmap.get(n, 0)
         
-        mmap = dict(sorted(mmap.items(), key=lambda item: item[1], reverse=True))
+        mmap = sorted(mmap.items(), key=lambda item: item[1], reverse=True)
         
-        ans = list(mmap.keys())
-        
-        return ans[:k]
+        return [item[0] for item in mmap[:k]]
