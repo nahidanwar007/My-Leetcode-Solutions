@@ -1,20 +1,19 @@
 class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
-        my_dict = {}
-        for n in nums:
-            my_dict[n] = 1 + my_dict.get(n, 0)
-        my_dict_s = sorted(my_dict.items(), key=lambda item: item[1], reverse=True)
+        mydict = {}
 
-        print(my_dict_s)
-        count = 0
-        deg = 0
-        for (key, val) in my_dict_s:
-            if not deg:
-                deg = val
-                count += val
-            elif val != deg:
-                return count
-            else:
-                count += val
-        return count
+        for n in nums:
+            mydict[n] = 1 + mydict.get(n, 0)
+        
+        mydict = dict(sorted(mydict.items(), key=lambda item: item[1], reverse=True))
+        freq = defaultdict(list)
+
+        for key, val in mydict.items():
+            freq[val].append(key)
+        print(freq)
+        first_key, first_val = list(freq.items())[0]
+        print(first_val)
+
+        return len(first_val)*first_key
+
 
